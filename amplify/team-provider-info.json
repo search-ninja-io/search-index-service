@@ -1,0 +1,36 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-search-index-service-dev-140257-authRole",
+            "UnauthRoleArn": "arn:aws:iam::402774754291:role/amplify-search-index-service-dev-140257-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::402774754291:role/amplify-search-index-service-dev-140257-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-search-index-service-dev-140257-deployment",
+            "UnauthRoleName": "amplify-search-index-service-dev-140257-unauthRole",
+            "StackName": "amplify-search-index-service-dev-140257",
+            "StackId": "arn:aws:cloudformation:us-east-1:402774754291:stack/amplify-search-index-service-dev-140257/fb08b9a0-6073-11ea-8c09-122e54527a47",
+            "AmplifyAppId": "d1nnqqgvrheotr"
+        },
+        "categories": {
+            "auth": {
+                "searchindexservicebbc86fb0": {},
+                "searchindexservice9cd385d5": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"337904865128-hq181tkp1ictqeigusk3pmocapi66tqn.apps.googleusercontent.com\",\"client_secret\":\"J7OFWP_E3M9ptPJwP6-tu1h8\"}]"
+                }
+            },
+            "function": {
+                "searchindexserviced6f002ddDefineAuthChallenge": {},
+                "searchindexserviced6f002ddCreateAuthChallenge": {},
+                "searchindexserviced6f002ddVerifyAuthChallengeResponse": {
+                    "RECAPTCHASECRET": ""
+                },
+                "searchindexservice1ee92934CustomMessage": {
+                    "REDIRECTURL": "http://localhost:3000/",
+                    "EMAILSUBJECT": "Search / Index Service",
+                    "EMAILMESSAGE": "Please click the link to activate your account."
+                },
+                "searchindexservice98e0d0dfPreTokenGeneration": {}
+            }
+        }
+    }
+}
