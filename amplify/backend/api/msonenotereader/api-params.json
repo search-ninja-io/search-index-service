@@ -1,0 +1,42 @@
+{
+    "paths": [
+        {
+            "name": "/token",
+            "lambdaFunction": "msonenotereader",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            }
+        }
+    ],
+    "resourceName": "msonenotereader",
+    "apiName": "msonenotereader",
+    "functionArns": [
+        {
+            "lambdaFunction": "msonenotereader"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-search-index-service-dev-14126-authRole",
+        "unAuthRoleName": "amplify-search-index-service-dev-14126-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "msonenotereader",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "31ab9bfb"
+}

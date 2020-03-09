@@ -11,5 +11,28 @@
             "providerPlugin": "awscloudformation",
             "dependsOn": []
         }
+    },
+    "api": {
+        "msonenotereader": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "msonenotereader",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
+        }
+    },
+    "function": {
+        "msonenotereader": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true
+        }
     }
 }
