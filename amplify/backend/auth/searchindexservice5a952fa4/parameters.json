@@ -62,5 +62,5 @@
     },
     "permissions": [],
     "dependsOn": [],
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://search-dev.markwalder.eu/\"],\"LogoutURLs\":[\"https://search-dev.markwalder.eu/\"]}"
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://search-dev.markwalder.eu/\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"https://search-dev.markwalder.eu/\",\"http://localhost:3000/\"]}"
 }
