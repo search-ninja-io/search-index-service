@@ -18,5 +18,25 @@
                 }
             }
         }
+    },
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-search-index-service-prod-21403-authRole",
+            "UnauthRoleArn": "arn:aws:iam::402774754291:role/amplify-search-index-service-prod-21403-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::402774754291:role/amplify-search-index-service-prod-21403-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-search-index-service-prod-21403-deployment",
+            "UnauthRoleName": "amplify-search-index-service-prod-21403-unauthRole",
+            "StackName": "amplify-search-index-service-prod-21403",
+            "StackId": "arn:aws:cloudformation:us-east-1:402774754291:stack/amplify-search-index-service-prod-21403/45c9d480-61a3-11ea-ab41-0a1f71f25d05",
+            "AmplifyAppId": "d1l9x7unbz1p1g"
+        },
+        "categories": {
+            "auth": {
+                "searchindexservice5a952fa4": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"337904865128-48v37op7e00mvuf3l81t3ue6tsflhpsi.apps.googleusercontent.com\",\"client_secret\":\"j7DwtS-NwGPUzpjb-CAKl5mg\"}]"
+                }
+            }
+        }
     }
 }
