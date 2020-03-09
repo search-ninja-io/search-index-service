@@ -17,13 +17,14 @@ const isLocalhost = Boolean(
     )
 );
 
-if (isLocalhost) {
-    config.oauth.redirectSignIn = 'http://localhost:3000/';
-    config.oauth.redirectSignOut = 'http://localhost:3000/';
-}
+const redirectSignInOptions = config.oauth.redirectSignIn.split(',');
+const redirect = isLocalhost
+    ? redirectSignInOptions.find(s => s.includes('localhost')) || ''
+    : redirectSignInOptions.find(s => s.startsWith('https')) || '';
+config.oauth.redirectSignIn = redirect;
+config.oauth.redirectSignOut = redirect;
 
-
-Amplify.configure(config);
+console.log(Amplify.configure(config));
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href') || "/";
 const rootElement = document.getElementById('root');
