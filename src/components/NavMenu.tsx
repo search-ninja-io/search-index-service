@@ -42,6 +42,9 @@ export class NavMenu extends Component<NavMenuProps, NavMenuState> {
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                                 </NavItem>
+                                <NavItem hidden={!this.props.auth.isAuthenticated}>
+                                    <NavLink tag={Link} className="text-dark" to="/reader">Reader</NavLink>
+                                </NavItem>
                                 <UserLogin {...this.props} />
                             </ul>
                         </Collapse>

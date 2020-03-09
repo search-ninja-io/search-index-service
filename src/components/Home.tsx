@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-export interface HomeProps { }
+interface HomeProps { }
 
-export interface HomeState { }
+interface HomeState { }
 
 export class Home extends Component<HomeProps, HomeState> {
 
