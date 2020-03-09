@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "searchindexservice9cd385d5_identitypool_9cd385d5",
+    "identityPoolName": "searchindexservice5a952fa4_identitypool_5a952fa4",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "search9cd385d5",
-    "userPoolName": "searchindexservice9cd385d5_userpool_9cd385d5",
+    "resourceNameTruncated": "search5a952fa4",
+    "userPoolName": "searchindexservice5a952fa4_userpool_5a952fa4",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -29,9 +29,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "search9cd385d5_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "search5a952fa4_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "searchindexservice9cd385d5",
+    "resourceName": "searchindexservice5a952fa4",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -56,7 +56,7 @@
         "Google"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"name\":\"name\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://search-dev.markwalder.eu/\"],\"LogoutURLs\":[\"https://search-dev.markwalder.eu/\"]}",
     "userPoolGroupList": [],
     "parentStack": {
         "Ref": "AWS::StackId"
