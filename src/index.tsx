@@ -24,7 +24,7 @@ const redirect = isLocalhost
 config.oauth.redirectSignIn = redirect;
 config.oauth.redirectSignOut = redirect;
 
-console.log(Amplify.configure(config));
+Amplify.configure(config);
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href') || "/";
 const rootElement = document.getElementById('root');

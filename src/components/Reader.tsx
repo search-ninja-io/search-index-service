@@ -12,17 +12,10 @@ const Reader = () => {
     const [fetching, setFetching] = useState(true);
 
     async function fetchData() {
-        console.log('fetchData');
         setFetching(true);
         let apiName = 'msonenotereader';
         let path = '/token';
-        let myInit = {
-            headers: {
-                //Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`
-            },
-            response: true
-        }
-        const result = await API.get(apiName, path, myInit)
+        const result = await API.get(apiName, path, {})
             .then(result => setNotebooks(result))
             .catch(error => setError(error));
         setFetching(false);
@@ -33,7 +26,6 @@ const Reader = () => {
         fetchData();
     }, []);
 
-    console.log('render: ' + fetching);
     if (error) {
         return (
             <div>
@@ -61,54 +53,3 @@ const Reader = () => {
 }
 
 export default Reader;
-/*
-    export class Reader extends Component<ReaderProps, ReaderState> {
-
-
-        render() {
-            try {
-                return this.getData()
-                    .then(result => {
-                        console.log('render - result: ' + result);
-                        return (
-                            <div>
-                                <h1>Reader</h1>
-                                <p>{result}</p>
-                            </div>
-                        );
-                    })
-                    .catch(error => {
-                        console.log('render - error: ' + error);
-                        return (
-                            <div>
-                                <h1>Reader</h1>
-                                <p>Error: {error}</p>
-                            </div>
-                        );
-                    });
-            }
-            catch (error) {
-                console.log('render - catch: ' + error);
-                return (
-                    <div>
-                        <h1>Reader</h1>
-                        <p>Error - catch: {error}</p>
-                    </div>
-                );
-            }
-        }
-
-        async getData() {
-            let apiName = 'msonenoteread';
-            let path = '/token';
-            let myInit = { // OPTIONAL
-                headers: {} // OPTIONAL
-            }
-            return API.get(apiName, path, myInit)
-                .then(result => { return result })
-                .catch(error => { throw error });
-        }
-
-
-    }
-*/

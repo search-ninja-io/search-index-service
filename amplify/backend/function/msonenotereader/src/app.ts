@@ -1,6 +1,6 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
+import * as express from 'express';
+import * as bodyParser from "body-parser";
+import * as awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
 
 // declare a new express app
 var app = express()
@@ -21,7 +21,6 @@ app.use(function (req, res, next) {
 
 app.get('/token', function (req, res) {
   // Add your code here
-
   res.json({ success: 'get call succeed!', url: req.url });
 });
 

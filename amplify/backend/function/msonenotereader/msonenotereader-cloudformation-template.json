@@ -63,7 +63,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-search-index-service-dev-14126-deployment",
-					"S3Key": "amplify-builds/msonenotereader-794c3279586553675936-build.zip"
+					"S3Key": "amplify-builds/msonenotereader-74776b5056367a304531-build.zip"
 				}
 			}
 		},
