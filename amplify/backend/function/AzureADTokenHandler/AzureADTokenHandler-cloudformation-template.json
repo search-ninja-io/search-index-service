@@ -70,7 +70,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-search-index-service-dev-14126-deployment",
-					"S3Key": "amplify-builds/AzureADTokenHandler-6530706b655442734651-build.zip"
+					"S3Key": "amplify-builds/AzureADTokenHandler-3763646b78476d586446-build.zip"
 				}
 			}
 		},
