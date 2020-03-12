@@ -33,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "amplify:AzureADTokenHandler": "cd amplify/backend/function/AzureADtokenHandler/src && yarn && tsc ./*.ts",
+    "amplify:AzureADTokenHandler": "cd amplify/backend/function/AzureADTokenHandler/src && yarn && tsc ./*.ts",
     "amplify:ElasticSearchIndex": "cd amplify/backend/function/ElasticSearchIndex/src && yarn && tsc ./*.ts",
     "amplify:MSOneNoteReader": "cd amplify/backend/function/MSOneNoteReader/src && yarn && tsc ./*.ts",
     "amplify:MSOneNoteWriter": "cd amplify/backend/function/MSOneNoteWriter/src && yarn && tsc ./*.ts",
