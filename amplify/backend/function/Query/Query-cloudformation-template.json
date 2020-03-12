@@ -28,12 +28,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"MSOneNoteReader",
+						"Query",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"MSOneNoteReader",
+									"Query",
 									"-",
 									{
 										"Ref": "env"
@@ -63,7 +63,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-search-index-service-dev-14126-deployment",
-					"S3Key": "amplify-builds/MSOneNoteReader-585454504f5357797367-build.zip"
+					"S3Key": "amplify-builds/Query-523746744776655a3151-build.zip"
 				}
 			}
 		},
@@ -73,12 +73,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"searchindexserviceLambdaRole89e1562c",
+						"searchindexserviceLambdaRole6fa7d8a1",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"searchindexserviceLambdaRole89e1562c",
+									"searchindexserviceLambdaRole6fa7d8a1",
 									"-",
 									{
 										"Ref": "env"

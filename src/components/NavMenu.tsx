@@ -38,6 +38,9 @@ const NavMenu: FunctionComponent<NavMenuProps> = (props) => {
                             <NavItem hidden={!props.authState.isAuthenticated}>
                                 <NavLink tag={Link} className="text-dark" to="/writer">Writer</NavLink>
                             </NavItem>
+                            <NavItem hidden={!props.authState.isAuthenticated}>
+                                <NavLink tag={Link} className="text-dark" to="/query">Query</NavLink>
+                            </NavItem>
                             <UserLogin {...props} />
                         </ul>
                     </Collapse>

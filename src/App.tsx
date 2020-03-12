@@ -9,6 +9,7 @@ import Reader from './components/Reader';
 import Token from './components/Token';
 import SearchIndex from './components/SearchIndex';
 import Writer from './components/Writer';
+import Query from './components/Query';
 
 interface AppProps extends AuthProps { }
 
@@ -20,6 +21,7 @@ const RootApp: FunctionComponent<AppProps> = (props) => {
             <Route exact path='/token' component={Token} />
             <Route exact path='/searchindex' component={SearchIndex} />
             <Route exact path='/writer' component={Writer} />
+            <Route exact path='/query' component={Query} />
         </Layout>
     );
 }

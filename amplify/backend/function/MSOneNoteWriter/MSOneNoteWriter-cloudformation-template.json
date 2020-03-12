@@ -63,7 +63,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-search-index-service-dev-14126-deployment",
-					"S3Key": "amplify-builds/MSOneNoteWriter-44374a697752554e4641-build.zip"
+					"S3Key": "amplify-builds/MSOneNoteWriter-51586f62767268616e33-build.zip"
 				}
 			}
 		},

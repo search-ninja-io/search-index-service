@@ -34,9 +34,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "amplify:AzureADTokenHandler": "cd amplify/backend/function/AzureADtokenHandler/src && yarn && tsc ./*.ts",
+    "amplify:ElasticSearchIndex": "cd amplify/backend/function/ElasticSearchIndex/src && yarn && tsc ./*.ts",
     "amplify:MSOneNoteReader": "cd amplify/backend/function/MSOneNoteReader/src && yarn && tsc ./*.ts",
     "amplify:MSOneNoteWriter": "cd amplify/backend/function/MSOneNoteWriter/src && yarn && tsc ./*.ts",
-    "amplify:UpdateSearchIndex": "cd amplify/backend/function/UpdateSearchIndex/src && yarn && tsc ./*.ts"
+    "amplify:Query": "cd amplify/backend/function/Query/src && yarn && tsc ./*.ts"
   },
   "eslintConfig": {
     "extends": "react-app"

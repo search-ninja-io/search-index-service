@@ -28,12 +28,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"UpdateSearchIndex",
+						"ElasticSearchIndex",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"UpdateSearchIndex",
+									"ElasticSearchIndex",
 									"-",
 									{
 										"Ref": "env"
@@ -63,7 +63,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-search-index-service-dev-14126-deployment",
-					"S3Key": "amplify-builds/UpdateSearchIndex-43673869774d37446471-build.zip"
+					"S3Key": "amplify-builds/ElasticSearchIndex-5a44682b6c51467a3872-build.zip"
 				}
 			}
 		},
@@ -73,12 +73,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"searchindexserviceLambdaRole13828a3d",
+						"searchindexserviceLambdaRoleaaa8967d",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"searchindexserviceLambdaRole13828a3d",
+									"searchindexserviceLambdaRoleaaa8967d",
 									"-",
 									{
 										"Ref": "env"

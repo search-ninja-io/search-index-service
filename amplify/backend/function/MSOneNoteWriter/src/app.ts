@@ -12,15 +12,15 @@ app.use(function (_req, res, next) {
   next();
 });
 
-app.get('/token', function (req, res) {
-  tokenGet(req, res);
+app.get('/writer', function (req, res) {
+  writerGet(req, res);
 });
 
-app.get('/token/*', function (req, res) {
-  tokenGet(req, res);
+app.get('/writer/*', function (req, res) {
+  writerGet(req, res);
 });
 
-function tokenGet(req, res) {
+function writerGet(req, res) {
   res.json({ success: 'get call succeed!', url: req.url });
 }
 

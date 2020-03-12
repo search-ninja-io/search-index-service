@@ -1,5 +1,5 @@
 {
-  "name": "azuread-token-handler",
+  "name": "elastic-search-index",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

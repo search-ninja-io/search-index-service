@@ -6,11 +6,47 @@
             "privacy": {
                 "private": true,
                 "auth": [
-                    "/POST",
-                    "/GET",
-                    "/PUT",
-                    "/PATCH",
-                    "/DELETE"
+                    "/GET"
+                ]
+            }
+        },
+        {
+            "name": "/reader",
+            "lambdaFunction": "MSOneNoteReader",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET"
+                ]
+            }
+        },
+        {
+            "name": "/searchindex",
+            "lambdaFunction": "ElasticSearchIndex",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET"
+                ]
+            }
+        },
+        {
+            "name": "/writer",
+            "lambdaFunction": "MSOneNoteWriter",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET"
+                ]
+            }
+        },
+        {
+            "name": "/query",
+            "lambdaFunction": "Query",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET"
                 ]
             }
         }
@@ -20,10 +56,22 @@
     "functionArns": [
         {
             "lambdaFunction": "AzureADTokenHandler"
+        },
+        {
+            "lambdaFunction": "MSOneNoteReader"
+        },
+        {
+            "lambdaFunction": "ElasticSearchIndex"
+        },
+        {
+            "lambdaFunction": "MSOneNoteWriter"
+        },
+        {
+            "lambdaFunction": "Query"
         }
     ],
     "privacy": {
-        "auth": 1,
+        "auth": 5,
         "unauth": 0,
         "authRoleName": "amplify-search-index-service-dev-14126-authRole",
         "unAuthRoleName": "amplify-search-index-service-dev-14126-unauthRole"
@@ -36,6 +84,39 @@
                 "Name",
                 "Arn"
             ]
+        },
+        {
+            "category": "function",
+            "resourceName": "MSOneNoteReader",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "ElasticSearchIndex",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "MSOneNoteWriter",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "Query",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
         }
-    ]
+    ],
+    "uuid": "93c09e39"
 }

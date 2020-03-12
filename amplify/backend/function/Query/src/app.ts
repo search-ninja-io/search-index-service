@@ -12,15 +12,15 @@ app.use(function (_req, res, next) {
   next();
 });
 
-app.get('/token', function (req, res) {
-  tokenGet(req, res);
+app.get('/query', function (req, res) {
+  queryGet(req, res);
 });
 
-app.get('/token/*', function (req, res) {
-  tokenGet(req, res);
+app.get('/query/*', function (req, res) {
+  queryGet(req, res);
 });
 
-function tokenGet(req, res) {
+function queryGet(req, res) {
   res.json({ success: 'get call succeed!', url: req.url });
 }
 
