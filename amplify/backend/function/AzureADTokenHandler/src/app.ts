@@ -3,15 +3,15 @@ import * as bodyParser from "body-parser";
 import * as awsServerlessExpressMiddleware from 'aws-serverless-express/middleware';
 
 // declare a new express app
-var app = express()
-app.use(bodyParser.json())
-app.use(awsServerlessExpressMiddleware.eventContext())
+var app = express();
+app.use(bodyParser.json());
+app.use(awsServerlessExpressMiddleware.eventContext());
 
 // Enable CORS for all methods
-app.use(function (req: any, res, next) {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-  next()
+app.use(function (_req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
 
@@ -20,14 +20,16 @@ app.use(function (req: any, res, next) {
  **********************/
 
 app.get('/token', function (req, res) {
-  // Add your code here
-  res.json({ success: 'get call succeed!', url: req.url });
+  tokenGet(req, res);
 });
 
 app.get('/token/*', function (req, res) {
-  // Add your code here
-  res.json({ success: 'get call succeed!', url: req.url });
+  tokenGet(req, res);
 });
+
+function tokenGet(req, res) {
+  res.json({ success: 'get call succeed!', url: req.url });
+}
 
 /****************************
 * Example post method *
@@ -35,12 +37,12 @@ app.get('/token/*', function (req, res) {
 
 app.post('/token', function (req, res) {
   // Add your code here
-  res.json({ success: 'post call succeed!', url: req.url, body: req.body })
+  res.json({ success: 'post call succeed!', url: req.url, body: req.body });
 });
 
 app.post('/token/*', function (req, res) {
   // Add your code here
-  res.json({ success: 'post call succeed!', url: req.url, body: req.body })
+  res.json({ success: 'post call succeed!', url: req.url, body: req.body });
 });
 
 /****************************
@@ -49,12 +51,12 @@ app.post('/token/*', function (req, res) {
 
 app.put('/token', function (req, res) {
   // Add your code here
-  res.json({ success: 'put call succeed!', url: req.url, body: req.body })
+  res.json({ success: 'put call succeed!', url: req.url, body: req.body });
 });
 
 app.put('/token/*', function (req, res) {
   // Add your code here
-  res.json({ success: 'put call succeed!', url: req.url, body: req.body })
+  res.json({ success: 'put call succeed!', url: req.url, body: req.body });
 });
 
 /****************************
@@ -72,7 +74,7 @@ app.delete('/token/*', function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log("App started")
+  console.log("App started");
 });
 
 export default app;
