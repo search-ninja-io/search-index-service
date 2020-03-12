@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
+import React, { FunctionComponent } from 'react';
 import './App.css';
 import { withAuth, AuthProps } from './components/AuthProvider';
-
 import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
+
+import Layout from './components/Layout';
+import Home from './components/Home';
 import Reader from './components/Reader';
+import Token from './components/Token';
+import SearchIndex from './components/SearchIndex';
+import Writer from './components/Writer';
 
 interface AppProps extends AuthProps { }
 
-class RootApp extends Component<AppProps> {
-    static displayName = RootApp.name;
-
-    render() {
-        return (
-            <Layout {...this.props} >
-                <Route exact path='/' component={Home} />
-                <Route exact path='/reader' component={Reader} />
-            </Layout>
-        );
-    }
-
+const RootApp: FunctionComponent<AppProps> = (props) => {
+    return (
+        <Layout {...props} >
+            <Route exact path='/' component={Home} />
+            <Route exact path='/reader' component={Reader} />
+            <Route exact path='/token' component={Token} />
+            <Route exact path='/searchindex' component={SearchIndex} />
+            <Route exact path='/writer' component={Writer} />
+        </Layout>
+    );
 }
 
 export const App = withAuth(RootApp);

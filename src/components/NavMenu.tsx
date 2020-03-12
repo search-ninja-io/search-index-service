@@ -1,56 +1,50 @@
-import React, { Component } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import UserLogin from './UserLogin';
 import { Link } from 'react-router-dom';
-import { AuthProps } from './AuthProvider';
 
+import UserLogin from './UserLogin';
+import { AuthProps } from './AuthProvider';
 import './NavMenu.css';
 
 interface NavMenuProps extends AuthProps { }
 
-interface NavMenuState {
-    collapsed: boolean;
+const NavMenu: FunctionComponent<NavMenuProps> = (props) => {
+    const [collapsed, setCollapsed] = useState(true);
+
+    const toggleNavbar = () => {
+        setCollapsed(!collapsed)
+    }
+
+    return (
+        <header>
+            <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
+                <Container>
+                    <NavbarBrand tag={Link} to="/">Search / Index Service</NavbarBrand>
+                    <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+                    <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
+                        <ul className="navbar-nav flex-grow">
+                            <NavItem>
+                                <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+                            </NavItem>
+                            <NavItem hidden={!props.authState.isAuthenticated}>
+                                <NavLink tag={Link} className="text-dark" to="/reader">Reader</NavLink>
+                            </NavItem>
+                            <NavItem hidden={!props.authState.isAuthenticated}>
+                                <NavLink tag={Link} className="text-dark" to="/token">Token</NavLink>
+                            </NavItem>
+                            <NavItem hidden={!props.authState.isAuthenticated}>
+                                <NavLink tag={Link} className="text-dark" to="/searchindex">Search Index</NavLink>
+                            </NavItem>
+                            <NavItem hidden={!props.authState.isAuthenticated}>
+                                <NavLink tag={Link} className="text-dark" to="/writer">Writer</NavLink>
+                            </NavItem>
+                            <UserLogin {...props} />
+                        </ul>
+                    </Collapse>
+                </Container>
+            </Navbar>
+        </header>
+    );
 }
 
-export class NavMenu extends Component<NavMenuProps, NavMenuState> {
-    static displayName = NavMenu.name;
-
-    constructor(props: NavMenuProps) {
-        super(props);
-
-        this.toggleNavbar = this.toggleNavbar.bind(this);
-        this.state = {
-            collapsed: true
-        };
-    }
-
-    toggleNavbar() {
-        this.setState({
-            collapsed: !this.state.collapsed
-        });
-    }
-
-    render() {
-        return (
-            <header>
-                <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
-                    <Container>
-                        <NavbarBrand tag={Link} to="/">Search / Index Service</NavbarBrand>
-                        <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-                        <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-                            <ul className="navbar-nav flex-grow">
-                                <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
-                                </NavItem>
-                                <NavItem hidden={!this.props.auth.isAuthenticated}>
-                                    <NavLink tag={Link} className="text-dark" to="/reader">Reader</NavLink>
-                                </NavItem>
-                                <UserLogin {...this.props} />
-                            </ul>
-                        </Collapse>
-                    </Container>
-                </Navbar>
-            </header>
-        );
-    }
-}
+export default NavMenu;

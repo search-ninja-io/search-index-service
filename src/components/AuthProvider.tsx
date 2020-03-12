@@ -1,4 +1,4 @@
-import React, { Component, ComponentType } from 'react';
+import React, { FunctionComponent, ComponentType, useState, useEffect } from 'react';
 import { Hub, Auth } from 'aws-amplify';
 
 export interface User {
@@ -6,13 +6,13 @@ export interface User {
     login: string;
 }
 
-export interface AuthData {
+export interface AuthState {
     isAuthenticated: boolean;
     user?: User;
 }
 
 export interface AuthProps {
-    auth: AuthData;
+    authState: AuthState;
     onSignIn: () => void;
     onSignOut: () => void;
 }
@@ -29,18 +29,14 @@ interface AuthProviderState {
 }
 
 export function withAuth<P extends AuthProviderProps>(HocComponent: ComponentType<P>) {
-    return class extends Component<AuthProviderProps, AuthProviderState> {
+    return (props: AuthProviderProps) => {
 
-        state = {
-            loginInProgress: false,
-            logoutInProgress: false,
-            isAuthenticated: false,
-            user: undefined,
-            hasError: false,
-            errorMessage: undefined
-        }
+        const [loginInProgress, setLoginInProgress] = useState(false);
+        const [logoutInProgress, setLogoutInProgress] = useState(false);
+        const [authState, setAuthState] = useState<AuthState>({ isAuthenticated: false, user: undefined });
+        const [error, setError] = useState({ hasError: false, errorMessage: '' });
 
-        componentDidMount() {
+        useEffect(() => {
             Hub.listen('auth', (data) => {
                 const { payload } = data
                 if (payload.event === 'signIn') {
@@ -48,8 +44,8 @@ export function withAuth<P extends AuthProviderProps>(HocComponent: ComponentTyp
                         .then(user => {
                             if (user && user.signInUserSession && user.signInUserSession.idToken && user.signInUserSession.idToken.payload) {
                                 const payloadIdToken = user.signInUserSession.idToken.payload;
-                                this.setState({
-                                    loginInProgress: false,
+                                setLoginInProgress(false);
+                                setAuthState({
                                     isAuthenticated: true,
                                     user: {
                                         login: payloadIdToken.email,
@@ -58,83 +54,69 @@ export function withAuth<P extends AuthProviderProps>(HocComponent: ComponentTyp
                                 });
                             }
                             else {
-                                this.setState({
-                                    loginInProgress: false,
+                                setLoginInProgress(false);
+                                setAuthState({
                                     isAuthenticated: false,
-                                    user: undefined,
+                                    user: undefined
+                                });
+                                setError({
                                     hasError: true,
                                     errorMessage: 'Could not extract user information from ID token.'
-                                })
+                                });
                             }
                         })
                         .catch(error => {
-                            this.setState({
-                                loginInProgress: false,
-                                isAuthenticated: false,
-                                user: undefined,
-                                hasError: true,
-                                errorMessage: error
-                            })
+                            setLoginInProgress(false);
+                            setAuthState({ isAuthenticated: false, user: undefined });
+                            setError({ hasError: true, errorMessage: error });
                         });
                 }
                 if (payload.event === 'signOut') {
-                    this.setState({
-                        logoutInProgress: false,
+                    setLogoutInProgress(false);
+                    setAuthState({
                         isAuthenticated: false,
                         user: undefined
                     });
                 }
             })
-        }
+        }, []);
 
-        onSignIn() {
+        const onSignIn = () => {
             Auth.federatedSignIn()
                 .then(result => {
-                    this.setState({
-                        loginInProgress: true
-                    });
+                    setLoginInProgress(true);
                 })
                 .catch(error => {
-                    this.setState({
-                        loginInProgress: false,
-                        hasError: true,
-                        errorMessage: error
-                    });
+                    setLoginInProgress(false)
+                    setError({ hasError: true, errorMessage: error });
                 });
         }
 
-        onSignOut() {
+        const onSignOut = () => {
             Auth.signOut()
                 .then(result => {
-                    this.setState({
-                        logoutInProgress: true
-                    });
+                    setLogoutInProgress(true);
                 })
                 .catch(error => {
-                    this.setState({
-                        logoutInProgress: false,
-                        hasError: true,
-                        errorMessage: error
-                    });
+                    setAuthState({ isAuthenticated: false, user: undefined });
+                    setError({ hasError: true, errorMessage: error });
                 });
         }
 
-        render() {
-            if (this.state.hasError) {
-                return <div>{this.state.errorMessage}</div>;
-            }
-            else if (this.state.loginInProgress) {
-                return <div>Login in progress...</div>;
-            }
-            else if (this.state.logoutInProgress) {
-                return <div>Logout in progress...</div>;
-            }
-            return <HocComponent
-                auth={this.state}
-                onSignIn={() => this.onSignIn()}
-                onSignOut={() => this.onSignOut()}
-                {...this.props as P}
-            />;
+        if (error.hasError) {
+            return <div>{error.errorMessage}</div>;
         }
+        else if (loginInProgress) {
+            return <div>Login in progress...</div>;
+        }
+        else if (logoutInProgress) {
+            return <div>Logout in progress...</div>;
+        }
+        return <HocComponent
+            authState={authState}
+            onSignIn={() => onSignIn()}
+            onSignOut={() => onSignOut()}
+            {...props as P}
+        />;
     };
 }

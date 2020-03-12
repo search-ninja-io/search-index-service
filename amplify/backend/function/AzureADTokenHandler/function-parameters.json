@@ -1,0 +1,12 @@
+{
+    "permissions": {
+        "auth": {
+            "SearchIndexServiceAuth": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        }
+    }
+}

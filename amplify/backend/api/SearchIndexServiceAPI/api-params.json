@@ -2,7 +2,7 @@
     "paths": [
         {
             "name": "/token",
-            "lambdaFunction": "msonenotereader",
+            "lambdaFunction": "AzureADTokenHandler",
             "privacy": {
                 "private": true,
                 "auth": [
@@ -15,11 +15,11 @@
             }
         }
     ],
-    "resourceName": "msonenotereader",
-    "apiName": "msonenotereader",
+    "resourceName": "SearchIndexServiceAPI",
+    "apiName": "SearchIndexServiceAPI",
     "functionArns": [
         {
-            "lambdaFunction": "msonenotereader"
+            "lambdaFunction": "AzureADTokenHandler"
         }
     ],
     "privacy": {
@@ -31,12 +31,11 @@
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "msonenotereader",
+            "resourceName": "AzureADTokenHandler",
             "attributes": [
                 "Name",
                 "Arn"
             ]
         }
-    ],
-    "uuid": "a60e6579"
+    ]
 }

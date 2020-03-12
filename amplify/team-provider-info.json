@@ -13,8 +13,9 @@
         },
         "categories": {
             "auth": {
-                "searchindexservice5a952fa4": {
-                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"hq181tkp1ictqeigusk3pmocapi66tqn.apps.googleusercontent.com\",\"client_secret\":\"J7OFWP_E3M9ptPJwP6-tu1h8\"}]"
+                "SearchIndexServiceAuth": {
+                    "googleClientId": "337904865128-hq181tkp1ictqeigusk3pmocapi66tqn.apps.googleusercontent.com",
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"337904865128-hq181tkp1ictqeigusk3pmocapi66tqn.apps.googleusercontent.com\",\"client_secret\":\"J7OFWP_E3M9ptPJwP6-tu1h8\"}]"
                 }
             }
         }

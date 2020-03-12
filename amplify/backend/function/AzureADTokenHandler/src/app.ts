@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as bodyParser from "body-parser";
-import * as awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
+import * as awsServerlessExpressMiddleware from 'aws-serverless-express/middleware';
 
 // declare a new express app
 var app = express()

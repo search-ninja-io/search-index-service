@@ -3,9 +3,9 @@ import { API } from 'aws-amplify';
 
 import { AuthProps } from './AuthProvider';
 
-interface ReaderProps extends AuthProps { }
+interface TokenProps extends AuthProps { }
 
-const Reader: FunctionComponent<ReaderProps> = () => {
+const Token: FunctionComponent<TokenProps> = () => {
     const [error, setError] = useState(undefined);
     const [data, setData] = useState({});
     const [fetching, setFetching] = useState(true);
@@ -13,7 +13,7 @@ const Reader: FunctionComponent<ReaderProps> = () => {
     async function fetchData() {
         setFetching(true);
         let apiName = 'SearchIndexServiceAPI';
-        let path = '/reader';
+        let path = '/token';
         const result = await API.get(apiName, path, {})
             .then(result => setData(result))
             .catch(error => setError(error));
@@ -28,7 +28,7 @@ const Reader: FunctionComponent<ReaderProps> = () => {
     if (error) {
         return (
             <div>
-                <h1>Reader</h1>
+                <h1>Token</h1>
                 <p>Error: {JSON.stringify(error)}</p>
             </div>
         );
@@ -36,7 +36,7 @@ const Reader: FunctionComponent<ReaderProps> = () => {
     else if (fetching) {
         return (
             <div>
-                <h1>Reader</h1>
+                <h1>Token</h1>
                 <p>Fetching Data...</p>
             </div>
         );
@@ -44,11 +44,11 @@ const Reader: FunctionComponent<ReaderProps> = () => {
 
     return (
         <div>
-            <h1>Reader</h1>
+            <h1>Token</h1>
             <p>{JSON.stringify(data)}</p>
         </div>
     );
 
 }
 
-export default Reader;
+export default Token;
